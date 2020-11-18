@@ -1,2 +1,8 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>投稿一覧</h1>
+<% if user_signed_in? %>
+  <% posts.each do |post| %>
+    <p><%= post.name %> : <%= post.title %> : <%= post.content %></p>
+  <% end %>
+<% else %>
+  <p>ログインしてください</p>
+<% end %>
