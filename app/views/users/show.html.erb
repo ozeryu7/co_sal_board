@@ -1,0 +1,6 @@
+<h2>ユーザーの詳細ページ</h2>
+<%= @user.name %>
+<hr>
+  <% @user.posts.each do |post| %>
+    <%= link_to(post.title, "/posts/#{post.id}") %>
+  <% end %>

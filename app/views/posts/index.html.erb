@@ -1,7 +1,7 @@
 <h1>投稿一覧</h1>
 <% if user_signed_in? %>
-  <% posts.each do |post| %>
-    <p><%= post.name %> : <%= post.title %> : <%= post.content %></p>
+  <% @post.each do |post| %>
+    <p><%= post.title %> : <%= post.content %></p>
   <% end %>
 <% else %>
   <p>ログインしてください</p>
