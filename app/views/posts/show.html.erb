@@ -3,19 +3,19 @@
 <% if @post.user_id == current_user.id %>
   <%= link_to("編集", "/posts/#{@post.id}/edit") %>
   <%= link_to("削除", "/posts/#{@post.id}", method: :delete, data: {confirm: "本当に削除しますか?"}) %>
-  <div>
-      <%= form_with(model: [@post, @comment], local: true) do |f| %>
-        <div>
-          <%= f.label :body, "コメント" %><br>
-          <%= f.text_area :body %>
-        </div>
-        <%= f.submit %>
-      <% end %>
-    </div>
-    <hr>
+<% end %> 
+<div>
+  <%= form_with(model: [@post, @comment], local: true) do |f| %>
     <div>
-      <% @post.comment.each do |comment| %>
-        <p><%= comment.body %></p>
-      <% end %>
+      <%= f.label :body, "コメント" %><br>
+      <%= f.text_area :body %>
     </div>
-<% end %>
+    <%= f.submit %>
+  <% end %>
+  </div>
+  <hr>
+  <div>
+    <% @post.comments.each do |comment| %>
+      <p><%= comment.body %></p>
+    <% end %>
+  </div>
