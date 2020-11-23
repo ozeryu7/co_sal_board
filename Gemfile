@@ -22,6 +22,7 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener_web'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -29,3 +30,8 @@ gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'font-awesome-sass'
+gem 'bootstrap-sass'
+gem 'data-confirm-modal'
+gem 'jquery-rails'
+gem 'rails-i18n'
