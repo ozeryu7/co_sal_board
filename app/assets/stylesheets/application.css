@@ -13,3 +13,57 @@
  *= require_tree .
  *= require_self
  */
+.container {
+  width: 80%;
+  margin: 20px auto;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  width: 400px;
+  padding: 6px;
+}
+
+input[type="submit"] {
+  background-color: #FF5D57;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  width: 150px;
+}
+
+input[type="checkbox"] {
+  width: 15px;
+}
+
+textarea {
+  height: 120px;
+}
+
+ul {
+  margin: 0px;
+}
+
+li {
+  list-style: none;
+  float: left;
+  padding-right: 10px;
+}
+
+header {
+  padding: 15px;
+  background-color: #FF5D57;
+  color: #fff;
+  height: 20px;
+}
+
+header a {
+  color: #fff;
+}
+
+.header-logo {
+  float: left;
+  padding-right: 20px;
+}
