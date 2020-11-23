@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
+  root to: 'posts#index'
   devise_for :users, controllers: {
             registrations: "users/registrations",
-            passwords: "users/passwords"
+            passwords: "users/passwords",
           }
            
   devise_scope :user do
-    post "users/guest_sign_in", to: "users/sessions#new_guest"
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
-  root to: "posts#index"
   resources :posts do
     # resources :likes, only: [:create, :destroy]
-    resources :comments, only: [:create, :edit, :update, :destroy]
+    resources :comments, only: [:create]
   end
+  resources :comments, only: [:edit, :update, :destroy]
 end

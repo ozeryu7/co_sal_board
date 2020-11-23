@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_guest
-    email = resources&.email || params[:user][:email].downcase
+    email = resource&.email || params[:user][:email].downcase
     if email == 'guest@example.com'
       redirect_to root_path, alert: 'ゲストユーザーは変更・削除できません。'
     end
