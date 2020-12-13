@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root to: 'posts#index'
   devise_for :users, controllers: {
+            omniauth_callbacks: "users/omniauth_callbacks",
             registrations: "users/registrations",
-            passwords: "users/passwords",
-            omniauth_callbacks: "users/omniauth_callbacks"
+            passwords: "users/passwords"
           }
            
   if Rails.env.development?
