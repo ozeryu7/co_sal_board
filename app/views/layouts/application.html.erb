@@ -11,6 +11,14 @@
 
   <body>
     <%= render 'layouts/header' %>
+    <% if notice %>
+    <%= notice %>
+    <% end %>
+
+    <% if alert %>
+    <%= alert %>
+    <% end %>
+
     <p><%= notice %></p>
     <p><%= alert %></p>
     <div class="container">

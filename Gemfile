@@ -28,10 +28,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'omniauth'
-gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 gem 'data-confirm-modal'
-gem 'jquery-rails'
-gem 'rails-i18n'
+gem 'dotenv-rails'
