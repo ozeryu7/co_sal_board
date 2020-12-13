@@ -1,8 +1,17 @@
 <h1>投稿一覧</h1>
 <% if user_signed_in? %>
-  <% @post.each do |post| %>
-    <p><%= post.title %> : <%= post.content %></p>
-  <% end %>
+<% @post.each do |post| %>
+    <li>
+      <div calss="post">
+        <%= post.title %>
+        <%= post.content %>
+          <ul class="post__bottom_box__adminn_actions">
+            <li><%= link_to "編集", edit_post_path(post.id) %><li>
+            <li><%= link_to "削除", post, method: :delete, data: { confirm: '本当に削除していいですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %></li>
+          </ul>
+      </div>
+    </li>
+<% end %>
 <% else %>
   <p>ログインしてください</p>
 <% end %>
