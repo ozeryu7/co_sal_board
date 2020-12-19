@@ -1,9 +1,15 @@
+<h1>投稿詳細</h1>
 <p><%= @post.title %></p>
 <p><%= @post.content %></p>
 <% if @post.user_id == current_user.id %>
   <%= link_to("編集", "/posts/#{@post.id}/edit") %>
   <%= link_to("削除", "/posts/#{@post.id}", method: :delete, data: {confirm: "本当に削除しますか?"}) %>
 <% end %> 
+<% if @post.images.attached? %>
+  <% @post.images.each do |image| %>
+    <%= image_tag image %> <br>
+  <% end %>
+<% end %>
 <div>
   <%= form_with(model: [@post, @comment], local: true) do |f| %>
     <div>
