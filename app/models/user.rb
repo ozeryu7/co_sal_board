@@ -4,24 +4,24 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
-         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+         :omniauthable
 
   has_many :posts, dependent: :destroy
   # has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  def self.find_for_oauth(auth) #auth facebookの情報が入る
-    user = User.where(uid: auth.uid, provider: auth.provider).first #uid:ユーザー識別のid、同じ人いないか検索している
-    
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+
     unless user
       user = User.new(
         uid: auth.uid,
         provider: auth.provider,
-        email: auth.info.email, #ダミー入れる可能性あり
+        email: auth.info.email,
         password: Devise.friendly_token[0,20],
         name: auth.info.name
       )
-      user.skip_confirmation!　#メール認証飛ばしている
+      user.skip_confirmation!
       user.save(validate: false) 
     end
     user
