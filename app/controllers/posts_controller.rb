@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @post = Post.includes(:user).all.order("created_at DESC")
+    @posts = Post.includes(:user).all.order("created_at DESC")
   end
 
   def show
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :images).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content, :image).merge(user_id: current_user.id)
   end
 
   def authenticate_admin!
