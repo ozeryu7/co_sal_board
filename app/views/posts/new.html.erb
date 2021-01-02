@@ -2,6 +2,6 @@
 <%= form_with model: @post, local: true do |form| %>
   <p><%= form.label :title, "タイトル" %> <%= form.text_field :title %></p>
   <p><%= form.label :content, "内容" %> <%= form.text_field :content %></p>
-  <p><%= form.label :image, "画像" %> <%= form.file_field :image %></p>
+  <p><%= form.label :images, "画像" %> <%= form.file_field :images, multiple: true %></p>
   <%= form.submit "送信" %>
 <% end %>

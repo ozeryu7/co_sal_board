@@ -1,20 +1,25 @@
 <h1>投稿一覧</h1>
+<table>
+  <thead>
     <% if user_signed_in? %>
-      <% @posts.each do |post| %>
-
+      <% @post.each do |post| %>
+        <tbody>
           <div calss="post">
-              <p><%= post.title %></p>
-              <p><%= post.content %></p>
-              <p><%= image_tag post.image if post.image.attached? %></p>
-                              <div id="post_<%= post.id %>">
-                  <%= render partial: "likes/like", locals: {post: post} %>
-                </div>
-              <p><%= render partial: "relationships/follow_button", locals: {user: post.user} %></p>
-              <p><%= link_to "詳細", post %></p>
-              <p><%= link_to "編集", edit_post_path(post.id) %></p>
-              <p><%= link_to "削除", post, method: :delete, data: { confirm: '本当に削除していいですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %></p>
+            <tr>
+              <td><%= post.title %></td>
+              <td><%= post.content %></td>
+              <td><%= image_tag post.images if post.images.attached? %></td>
+                <td>
+                  <%= link_to "詳細", post %>
+                  <%= link_to "編集", edit_post_path(post.id) %>
+                  <%= link_to "削除", post, method: :delete, data: { confirm: '本当に削除していいですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %>
+                </td>
+            </tr>
           </div>
-      <% end %>
-        <% else %>
-          <p>ログインしてください</p>
-      <% end %>
+        </tbody>
+    <% end %>
+    <% else %>
+      <p>ログインしてください</p>
+    <% end %>
+  </thead>
+</table>

@@ -13,14 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
- $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
- @import '@fortawesome/fontawesome-free/scss/fontawesome';
- @import '@fortawesome/fontawesome-free/scss/solid';
- @import '@fortawesome/fontawesome-free/scss/regular';
- @import '@fortawesome/fontawesome-free/scss/brands';
- @import '@fortawesome/fontawesome-free/scss/v4-shims';
- 
 .container {
   width: 80%;
   margin: 20px auto;
@@ -75,6 +67,3 @@ header a {
   float: left;
   padding-right: 20px;
 }
-
-@import "font-awesome-sprockets";
-@import "font-awesome";
