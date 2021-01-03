@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.includes(:user).all.order("created_at DESC")
+    @posts = Post.includes(:user).all.order("created_at DESC").page(params[:page]).per(5)
   end
 
   def show
