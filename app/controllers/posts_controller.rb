@@ -50,7 +50,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :image).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content, :images).merge(user_id: current_user.id)
   end
 
   def authenticate_admin!
