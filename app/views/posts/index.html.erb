@@ -1,12 +1,11 @@
 <h1>投稿一覧</h1>
-    <% if user_signed_in? %>
-      <% @posts.each do |post| %>
-
+     <% if user_signed_in? %>
+        <% @posts.each do |post| %>
           <div calss="post">
               <p><%= post.title %></p>
               <p><%= post.content %></p>
               <p><%= image_tag post.image if post.image.attached? %></p>
-                              <div id="post_<%= post.id %>">
+                <div id="post_<%= post.id %>">
                   <%= render partial: "likes/like", locals: {post: post} %>
                 </div>
               <p><%= render partial: "relationships/follow_button", locals: {user: post.user} %></p>
@@ -14,7 +13,8 @@
               <p><%= link_to "編集", edit_post_path(post.id) %></p>
               <p><%= link_to "削除", post, method: :delete, data: { confirm: '本当に削除していいですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %></p>
           </div>
-      <% end %>
-        <% else %>
-          <p>ログインしてください</p>
-      <% end %>
+        <% end %>
+     <% else %>
+        <p>ログインしてください</p>
+     <% end %>
+    <%= paginate @posts %>
