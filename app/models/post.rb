@@ -12,14 +12,19 @@ class Post < ApplicationRecord
       return self.images[input].variant(resize: '300x300!').processed
     end
 
-    private
-
-        def image_type
-          if image.each do |image|
-            if !image.content_type.in?(%('image/jpec image/png image/jpg image/jpeg'))
-              errors.add(:image, 'ファイルが対応している画像データではありません')
-            end
-          end
+    def image_type
+      return unless image.attached?
+        if image.blob.byte_size > 10.megabytes
+          image.purge
+          errors.add(:image, 'ファイルのサイズが大きすぎます')
+        elsif !image?
+          image.purge
+          errors.add(:image, 'ファイルが対応している画像データではありません')
         end
+      end
     end
-end
+  private
+
+  def image?
+    %w[image/jpg image/jpeg image/gif image/png].include?(image.blob.content_type)
+  end
