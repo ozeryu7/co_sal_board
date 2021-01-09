@@ -5,7 +5,7 @@
   <%= link_to("編集", "/posts/#{@post.id}/edit") %>
   <%= link_to("削除", "/posts/#{@post.id}", method: :delete, data: {confirm: "本当に削除しますか?"}) %>
 <% end %> 
-<% if @post.images.attached? %>
+<% if @post.image.attached? %>
   <% @post.images.each do |image| %>
     <%= image_tag image %> <br>
   <% end %>
