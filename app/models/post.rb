@@ -26,5 +26,6 @@ class Post < ApplicationRecord
   private
 
   def image?
-    %w[image/jpg image/jpeg image/gif image/png].include?(image.blob.content_type)
+    %w[image/jpg image/jpeg image/gif image/png].include?
+    (image.blob.content_type)
   end
