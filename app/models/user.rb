@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  def liked_by?(post_id)
+    likes.where(post_id: post_id).exists?
+  end
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
