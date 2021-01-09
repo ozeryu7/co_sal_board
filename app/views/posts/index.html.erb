@@ -5,10 +5,10 @@
               <p><%= post.title %></p>
               <p><%= post.content %></p>
               <p><%= image_tag post.image if post.image.attached? %></p>
-                <div id="post_<%= post.id %>">
-                  <%= render partial: "likes/like", locals: {post: post} %>
+                <div id="post_<%= post.id %>">  
+                  <%= render partial: 'likes/like', locals: {post: post} %>
                 </div>
-              <p><%= render partial: "relationships/follow_button", locals: {user: post.user} %></p>
+              <%# <p><%= render partial: "relationships/follow_button", locals: {user: post.user} %></p>
               <p><%= link_to "詳細", post %></p>
               <p><%= link_to "編集", edit_post_path(post.id) %></p>
               <p><%= link_to "削除", post, method: :delete, data: { confirm: '本当に削除していいですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %></p>
