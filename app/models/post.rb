@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_one_attached :image
 
   validate :image_type
+  validate :image_size
   validates :title, presence: true, length: {maximum: 140 }
   validates :content, length: { maximum: 3000 }
 
@@ -12,20 +13,28 @@ class Post < ApplicationRecord
       return self.images[input].variant(resize: '300x300!').processed
     end
 
-    def image_type
-      return unless image.attached?
-        if image.blob.byte_size > 10.megabytes
-          image.purge
-          errors.add(:image, 'ファイルのサイズが大きすぎます')
-        elsif !image?
-          image.purge
-          errors.add(:image, 'ファイルが対応している画像データではありません')
-        end
-      end
-    end
   private
 
-  def image?
-    %w[image/jpg image/jpeg image/gif image/png].include?
-    (image.blob.content_type)
+  #一つにしても良いので後ほどやる
+  def image_type
+    # image.each do |image|
+    if image.attached?
+      if !image.blob.content_type.in?(%('image/jpeg image/png image/jpg'))
+        image.purge
+        errors.add(:image, 'はjpegまたはpngまたはjpg形式でアップロードしてください')
+      end
+    end
+    # end
   end
+
+  def image_size
+    # image.each do |image|
+    if image.attached?
+      if image.blob.byte_size > 5.megabytes
+        image.purge
+        errors.add(:image, "は1つのファイル5MB以内にしてください")
+      end
+    end
+    # end
+  end
+end
