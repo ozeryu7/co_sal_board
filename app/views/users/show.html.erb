@@ -3,4 +3,7 @@
 <hr>
   <% @user.posts.each do |post| %>
     <%= link_to(post.title, "/posts/#{post.id}") %>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
   <% end %>
