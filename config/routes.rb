@@ -14,8 +14,18 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
+  # post "like/:id" => "likes#create", as: "create_like"
+  # delete "like/:id" => "likes#destroy", as: "destroy_like"
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
   resources :posts do
-    resources :likes, only: [:create, :destroy]
+    resources :likes, only: [:create]
+    resource :like, only: [:destroy]
     resources :comments, only: [:create]
   end
   resources :comments, only: [:edit, :update, :destroy]
