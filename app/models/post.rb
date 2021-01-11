@@ -9,22 +9,16 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: {maximum: 140 }
   validates :content, length: { maximum: 3000 }
 
-    def thumbnail input
-      return self.images[input].variant(resize: '300x300!').processed
-    end
-
   private
 
   #一つにしても良いので後ほどやる
   def image_type
-    # image.each do |image|
     if image.attached?
       if !image.blob.content_type.in?(%('image/jpeg image/png image/jpg'))
         image.purge
         errors.add(:image, 'はjpegまたはpngまたはjpg形式でアップロードしてください')
       end
     end
-    # end
   end
 
   def image_size
