@@ -6,9 +6,7 @@
   <%= link_to("削除", "/posts/#{@post.id}", method: :delete, data: {confirm: "本当に削除しますか?"}) %>
 <% end %> 
 <% if @post.image.attached? %>
-  <% @post.images.each do |image| %>
-    <%= image_tag image %> <br>
-  <% end %>
+  <%= image_tag @post.image.variant(resize_to_limit: [300, 300]) %>
 <% end %>
 <div>
   <%= form_with(model: [@post, @comment], local: true) do |f| %>
