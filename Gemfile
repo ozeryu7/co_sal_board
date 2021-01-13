@@ -39,6 +39,7 @@ gem 'mini_magick'
 gem 'image_processing', '~>1.2'
 gem 'kaminari'
 gem 'bootswatch', github: "thomaspark/bootswatch"
+gem "gretel"
 
 group :production do
  gem 'fog', '1.42'
