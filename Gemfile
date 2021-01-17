@@ -17,6 +17,9 @@ gem 'devise-i18n'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -42,6 +45,8 @@ gem 'image_processing', '~>1.2'
 gem 'kaminari'
 gem 'bootswatch', github: "thomaspark/bootswatch"
 gem "gretel"
+gem 'sqlite3', group: :development
+gem 'pg', group: :production
 
 group :production do
  gem 'fog', '1.42'
