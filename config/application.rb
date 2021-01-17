@@ -21,6 +21,7 @@ Bundler.require(*Rails.groups)
 
 module FutsalBoard
   class Application < Rails::Application
+    config.generators do |g|
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
@@ -34,5 +35,11 @@ module FutsalBoard
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    g.test_framework :RSpec
+      controller_specs: false
+      view_specs: false
+      helper_specs: false
+      routing_specs: false
+    end
   end
 end
