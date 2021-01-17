@@ -20,6 +20,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'spring-commands-rspec'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
   gem 'spring'
@@ -29,7 +30,7 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
-gem 'omniauth'
+gem 'omniauth', '1.9.1'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'font-awesome-sass'
