@@ -6,3 +6,4 @@ RSpec.describe User, type: :model do
     expect(user.disp_name).to eq "satouさん"
   end
 end
+
