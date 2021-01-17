@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   belongs_to :user
-  has_one_attached :image
+  has_many_attached :images
 
   validate :image_type
   validate :image_size
@@ -13,22 +13,24 @@ class Post < ApplicationRecord
 
   #一つにしても良いので後ほどやる
   def image_type
-    if image.attached?
-      if !image.blob.content_type.in?(%('image/jpeg image/png image/jpg'))
-        image.purge
-        errors.add(:image, 'はjpegまたはpngまたはjpg形式でアップロードしてください')
+    if images.attached?
+      images.each do |image|
+        if !image.blob.content_type.in?(%('image/jpeg image/png image/jpg'))
+          image.purge
+          errors.add(:images, 'はjpegまたはpngまたはjpg形式でアップロードしてください')
+       end
       end
     end
   end
 
   def image_size
-    # image.each do |image|
-    if image.attached?
-      if image.blob.byte_size > 5.megabytes
-        image.purge
-        errors.add(:image, "は1つのファイル5MB以内にしてください")
-      end
+    if images.attached?
+    images.each do |image|
+       if image.blob.byte_size > 5.megabytes
+         image.purge
+         errors.add(:images, "は1つのファイル5MB以内にしてください")
+       end
     end
-    # end
+    end
   end
 end
