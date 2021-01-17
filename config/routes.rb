@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'posts#index'
+  root to: "posts#index"
+  get :about,         to: 'static_pages#about'
+  get :use_of_terms,  to: 'static_pages#terms'
+
   devise_for :users, controllers: {
             omniauth_callbacks: "users/omniauth_callbacks",
             registrations: "users/registrations",
