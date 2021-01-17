@@ -5,8 +5,10 @@
   <%= link_to("編集", "/posts/#{@post.id}/edit") %>
   <%= link_to("削除", "/posts/#{@post.id}", method: :delete, data: {confirm: "本当に削除しますか?"}) %>
 <% end %> 
-<% if @post.image.attached? %>
-  <%= image_tag @post.image.variant(resize_to_limit: [300, 300]) %>
+<% if @post.images.attached? %>
+  <% @post.images.each do |image| %>
+    <%= image_tag image.variant(resize_to_limit: [300, 300]) %>
+  <% end %>
 <% end %>
 <div>
   <%= form_with(model: [@post, @comment], local: true) do |f| %>
@@ -14,7 +16,7 @@
       <%= f.label :body, "コメント" %><br>
       <%= f.text_area :body %>
     </div>
-    <%= f.submit %>
+    <%= f.submit "投稿", class: "btn btn-primary" %>
   <% end %>
   </div>
   <hr>
