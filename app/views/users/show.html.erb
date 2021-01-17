@@ -1,5 +1,5 @@
 <h2>ユーザーの詳細ページ</h2>
-<%= @user.name %>
+<%= @user.introduction %>
 <hr>
   <% @user.posts.each do |post| %>
     <%= link_to(post.title, "/posts/#{post.id}") %>
@@ -7,3 +7,10 @@
       <%= render 'shared/stats' %>
     </section>
   <% end %>
+
+  <% provide(:title, "プロフィール") %>
+<h1>プロフィール</h1>
+<%= gravatar_for @user %><br>
+<%= @user.id %>, <%= @user.name %>, <%= @user.email %>, <%= @user.sex %><br>
+<%= @user.introduction %><br>
+<%= @user.created_at %>, <%= @user.updated_at %><br>
