@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: futsal_board_production
-  username: futsal_board
-  password: <%= ENV['FUTSAL_BOARD_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
