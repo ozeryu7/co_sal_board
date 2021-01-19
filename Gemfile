@@ -45,9 +45,9 @@ gem 'image_processing', '~>1.2'
 gem 'kaminari'
 gem 'bootswatch', github: "thomaspark/bootswatch"
 gem "gretel"
-gem 'pg', group: :production
 
 group :production do
+ gem 'pg'
  gem 'fog', '1.42'
 end
 
