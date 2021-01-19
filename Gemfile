@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
-gem 'mysql2', '>= 0.4.4'
+gem 'mysql2', '>= 0.4.4', group: :development
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
@@ -45,7 +45,6 @@ gem 'image_processing', '~>1.2'
 gem 'kaminari'
 gem 'bootswatch', github: "thomaspark/bootswatch"
 gem "gretel"
-gem 'sqlite3', group: :development
 gem 'pg', group: :production
 
 group :production do
