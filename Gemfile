@@ -46,7 +46,6 @@ gem 'kaminari'
 gem 'bootswatch', github: "thomaspark/bootswatch"
 gem "gretel"
 
-
 group :production do
  gem 'pg'
  gem 'fog', '1.42'
