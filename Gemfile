@@ -20,6 +20,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -51,5 +52,6 @@ group :production do
  gem 'fog', '1.42'
 end
 
-group :development, :test do
+group :test do
+ gem 'webdrivers'
 end
