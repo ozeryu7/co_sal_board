@@ -1,6 +1,6 @@
 Capybara.javascript_driver = :chrome_headless
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :rack_test
   end
