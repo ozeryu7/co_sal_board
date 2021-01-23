@@ -21,6 +21,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'rails-controller-testing'
+  gem 'rubocop-airbnb'
 end
 
 group :development do
