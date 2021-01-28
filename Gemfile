@@ -14,6 +14,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
+gem 'faker'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
@@ -22,6 +24,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rails-controller-testing'
   gem 'rubocop-airbnb'
+  gem "factory_bot_rails", "~> 4.10.0"
 end
 
 group :development do
@@ -54,5 +57,7 @@ group :production do
 end
 
 group :test do
- gem 'webdrivers'
+ gem 'capybara', '>= 2.15'
+ gem 'selenium-webdriver'
+ gem 'rspec-rails'
 end
