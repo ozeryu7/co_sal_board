@@ -17,13 +17,10 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
-  # post "like/:id" => "likes#create", as: "create_like"
-  # delete "like/:id" => "likes#destroy", as: "destroy_like"
-
   resources :users, only: [:show, :edit] do
-    member do
-      get :following, :followers
-    end
+    resource :relationships, only: [:create, :destroy]
+    get :follows, on: :member
+    get :followers, on: :member 
   end
 
   resources :posts do

@@ -6,15 +6,22 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :active_relationships, class_name: "Relationship",
-                                  foreign_key: "follower_id",
-                                  dependent: :destroy
-  has_many :following, through: :active_relationships, source: :followed
 
+  # ====================自分がフォローしているユーザーとの関連 ===================================
+  #フォローする側のUserから見て、フォローされる側のUserを(中間テーブルを介して)集める。なので親はfollowing_id(フォローする側)
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "following_id",
+                                  dependent: :destroy
+  # 中間テーブルを介して「follower」モデルのUser(フォローされた側)を集めることを「followings」と定義
+  has_many :followings, through: :active_relationships, source: :follower
+
+  # ====================自分がフォローされるユーザーとの関連 ===================================
+  #フォローされる側のUserから見て、フォローしてくる側のUserを(中間テーブルを介して)集める。なので親はfollower_id(フォローされる側)
   has_many :passive_relationships, class_name: "Relationship",
-                                   foreign_key: "followed/id",
+                                   foreign_key: "follower_id",
                                    dependent: :destroy
-  has_many :followers, through: :passive_relationships, source: :follower
+  # 中間テーブルを介して「following」モデルのUser(フォローする側)を集めることを「followers」と定義
+  has_many :followers, through: :passive_relationships, source: :following
 
   def liked_by?(post_id)
     likes.where(post_id: post_id).exists?
@@ -37,24 +44,20 @@ class User < ApplicationRecord
     user
   end
 
-  # ユーザーをフォローする
-  def follow(other_user)
-    following << other_user
+  def followed_by?(user)
+    # 今自分(引数のuser)がフォローしようとしているユーザー(レシーバー)がフォローされているユーザー(つまりpassive)の中から、引数に渡されたユーザー(自分)がいるかどうかを調べる
+    passive_relationships.find_by(following_id: user.id).present?
   end
 
-  #ユーザーをフォロー解除する
-  def unfollow(other_user)
-    active_relationships.find_by(followed_id: other_user.id).destroy
-  end
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
 
-  #現在のユーザーがフォローしていたらtrueを返す
-  def following?(other_user)
-    following.include?(other_user)
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
   end
-
-  #現在のユーザーがフォローされていたらtrueを返す
-  def followed_by?(other_user)
-    followers.include?(other_user)
-  end
-
 end

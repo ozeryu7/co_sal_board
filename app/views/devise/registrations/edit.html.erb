@@ -28,12 +28,26 @@
           <%= f.text_field :sex, class: 'form-control', id: 'user_sex' %>
         </div>
 
-  <br />
+        <div class="field">
+        <%= f.label :password %> <i>(変更しない場合は空白)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        <% if @minimum_password_length %>
+        <em><%= @minimum_password_length %> 文字以上</em>
+        <% end %>
+        </div>
+        <br />
+
+        <div class="field">
+        <%= f.label :password_confirmation %><i>(変更しない場合は空白)</i><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+        <br />
+
     <%= f.submit "更新", class: "btn btn-primary" %>
 <% end %><br />
 
 <h5>アカウントを削除する</h5>
 
-<p><%= button_to "アカウント削除", registration_path(resource_name), class: "btn btn-secondary", data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= button_to "アカウント削除", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "ホーム", :back %>
