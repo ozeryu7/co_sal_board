@@ -4,6 +4,7 @@
      <% if user_signed_in? %>
         <% @posts.each do |post| %>
           <div calss="post">
+<%# 投稿日を表示したい %>
               <p><%= post.title %></p>
               <p><%= post.content %></p>
           <% if post.images.attached? %>

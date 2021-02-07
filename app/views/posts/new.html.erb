@@ -1,7 +1,11 @@
 <h1>投稿情報を入力</h1>
 <%= form_with model: @post, local: true do |form| %>
-  <p><%= form.label :title, "タイトル" %> <%= form.text_field :title %></p>
-  <p><%= form.label :content, "内容" %> <%= form.text_field :content %></p>
+  <p><%= form.label :title, "タイトル" %> <%= form.text_field :title, class: 'form-control' %></p>
+  <p><%= form.label :content, "内容" %> <%= form.text_field :content, class: 'form-control' %></p>
+  <p><%= form.label :shoes_color, "シューズの色、メーカー" %> <%= form.text_field :shoes_color, class: 'form-control' %></p>
+  <p><%= form.label :shirts_color, "シャツの色、メーカー" %> <%= form.text_field :shirts_color, class: 'form-control' %></p>
+  
   <p><%= form.label :images, "画像" %> <%= form.file_field :images, multiple: true %></p>
-  <%= form.submit "送信" %>
+  <p><input type="date"></p>
+  <%= form.submit "送信", class: "btn btn-primary" %>
 <% end %>
