@@ -21,10 +21,14 @@
       <%= f.label :introduction %>
       <%= f.text_area :introduction, size: "60x4", class: 'form-control', id: 'user_introduction' %>
     </div>
-    <div class = 'form-group'>
-      <%= f.label :sex %>
-      <%= f.text_field :sex, class: 'form-control', id: 'user_sex' %>
-    </div>
+    
+    <%= form_with(model: user, local: true) do |form| %>
+      <%= form.radio_button :gender, :male %>
+      <%= form.label :gender, "男性", {value: :male, style: "display: inline-block;"} %>
+      <%= form.radio_button :gender, :female %>
+      <%= form.label :gender, "女性", {value: :female, style: "display: inline-block;"} %>
+    <% end %>
+
     <%= f.submit "更新する", class: "btn btn-primary" %>
     <% end %>
   </div>

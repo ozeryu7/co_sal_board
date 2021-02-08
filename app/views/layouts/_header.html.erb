@@ -7,23 +7,23 @@
         <% if user_signed_in? %>
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="/posts">投稿一覧<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/posts/new">投稿画面</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/users/edit">プロフィール編集</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/users/show">プロフィール</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-method="delete" href="/users/sign_out">ログアウト</a>
-              </li>
+
             </ul>
             <form class="form-inline my-2 my-lg-0"> 
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/users/show">プロフィール</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-method="delete" href="/users/sign_out">ログアウト</a>
+                </li>
+              </ul>
               <input class="form-control mr-sm-2" type="text" placeholder="Search">
               <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
             </form>
@@ -42,7 +42,7 @@
                 <a class="nav-link" href="/users/sign_in">ログイン</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/users/sign_up">ユーザー登録</a>
+                <a class="nav-link" href="/users/sign_up">新規登録</a>
               </li>
             </ul>
           </div>
