@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
  
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+    @posts = @user.posts.paginate(page: params[:page], per_page: 5)
   end
 
   def edit
