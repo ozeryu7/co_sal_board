@@ -18,15 +18,15 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit] do
-    resource :relationships, only: [:create, :destroy]
-    get :follows, on: :member
-    get :followers, on: :member 
+      get :follows, on: :member
+      get :followers, on: :member 
   end
 
+  resource :relationships, only: [:create, :destroy]
   resources :posts do
     resources :likes, only: [:create]
     resource :like, only: [:destroy]
     resources :comments, only: [:create]
-  end
   resources :comments, only: [:edit, :update, :destroy]
+  end
 end

@@ -4,6 +4,7 @@
 <%= @user.id %>
 <%= @user.name %><br>
 <%= @user.introduction %>
+<%= @user.sex %>
 <%= @user.created_at.to_s(:datetime_jp) %><br>
 <%= @user.updated_at.to_s(:datetime_jp) %><br>
 <a class="nav-link" href="/users/edit">プロフィール編集</a>
@@ -17,6 +18,8 @@
         <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
     <% end %>
 <% end %>
+
+<%= render ‘relationships/follow_button’, user: @user %>
 
   <div class="row">
     <div class="col-md-9">
