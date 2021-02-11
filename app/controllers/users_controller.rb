@@ -7,21 +7,26 @@ class UsersController < ApplicationController
   end
  
   def show
-    # @user = User.find(params[:id])
+    @user = User.find(params[:id])
+    @posts = @user.posts.page(params[:page]).per(5)
   end
 
   def edit
     @user = User.find(params[:id])
   end
 
-  def follows
-    user = User.find(params[:id])
-    @users = user.followings
+  def following
+    @title = "フォロー中"
+    @user  = User.find(params[:id])
+    @users = @user.followings.page(params[:page]).per(5)
+    render 'show_follow'
   end
 
   def followers
-    user = User.find(params[:id])
-    @users = user.followers
+    @title = "フォロワー"
+    @user  = User.find(params[:id])
+    @users = @user.followers.page(params[:page]).per(5)
+    render 'show_follow'
   end
 
   private
@@ -40,7 +45,7 @@ class UsersController < ApplicationController
     # 正しいユーザーかどうか確認
   def correct_user
     @user = User.find(params[:id])
-    if !current_user?(@user)
+    if current_user != @user
       flash[:danger] = "このページへはアクセスできません"
       redirect_to(root_url)
     end

@@ -1,13 +1,21 @@
 class RelationshipsController < ApplicationController
+  before_action :logged_in_user
+
   def create
-    follow = current_user.active_relationships.build(follower_id: params[:user_id])
-    follow.save
-    redirect_to users_path
+    @user = User.find(params[:followed_id])
+    current_user.follow(@user)
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
+    end
   end
 
   def destroy
-    follow = current_user.active_relationships.find_by(follower_id: params[:user_id])
-    follow.destroy
-    redirect_to root_path
+    @user = Relationship.find(params[:id]).followed
+    current_user.unfollow(@user)
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
+    end
   end
 end

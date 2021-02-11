@@ -49,6 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:introduction, :sex])
+    
   end
 
   # If you have extra params to permit, append them to the sanitizer.

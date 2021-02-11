@@ -1,34 +1,30 @@
 <% provide(:title, "プロフィール") %>
 <h1>プロフィール</h1>
-<%= gravatar_for @user %><br>
-<%= @user.id %>
-<%= @user.name %><br>
-<%= @user.introduction %>
-<%= @user.sex %>
-<%= @user.created_at.to_s(:datetime_jp) %><br>
-<%= @user.updated_at.to_s(:datetime_jp) %><br>
-<a class="nav-link" href="/users/edit">プロフィール編集</a>
-<%# <p><%= render partial: "relationships/follow_button", locals: {user: post.user} %></p>
-<p><%=link_to "フォロー", follows_user_path(@user.id) %></p>
-<p><%=link_to "フォロワー", followers_user_path(@user.id) %></p>
-<% if current_user != @user %>
-    <% if @user.followed_by?(current_user) %>
-        <p><%=link_to "フォロー済み", user_relationships_path(@user.id), method: :delete %></p>
-    <% else %>
-        <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
-    <% end %>
+<% if @user.avatar.attached? %>
+    <p><%= image_tag @user.avatar.variant(resize_to_limit: [200, 200]) %></p>
 <% end %>
 
-<%= render ‘relationships/follow_button’, user: @user %>
-
-  <div class="row">
-    <div class="col-md-9">
-      <% if @user.posts.any? %>
-        <h3>投稿 (<%= @user.posts.count %>)</h3>
-        <ol class="posts">
-          <%= render @posts %>
-        </ol>
-        <%= will_paginate @posts %>
-      <% end %>
-    </div>
+<div class="col-md-8">
+  <h4 class="show-user-name">
+    <%= @user.name %><br>
+  </h4>
+  <div class="show-user-introduction">
+    <%= @user.introduction %>
   </div>
+  <div class="show-user-sex">
+  <%= @user.sex %>
+  </div>
+  <%= @user.created_at.to_s(:datetime_jp) %><br>
+  <%= @user.updated_at.to_s(:datetime_jp) %><br>
+
+  <section class="stats">
+    <%= render 'devise/shared/stats' %>
+  </section>
+
+  <% if current_user.id == @user.id %>
+    <a class="nav-link" href="/users/edit">プロフィール編集</a>
+  <% end %>
+  <%= render 'follow_form' if user_signed_in? %>
+  <%# <p><%= render partial: "relationships/follow_button", locals: {user: post.user} %></p>
+
+</div>

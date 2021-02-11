@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     added_attrs = [:name]
-    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit(:account_update, keys: %i(avatar))
   end
+
+  #  :sign_up, keys: added_attrs
 
   def check_guest
     email = resource&.email || params[:user][:email].downcase

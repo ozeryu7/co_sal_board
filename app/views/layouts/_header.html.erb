@@ -17,8 +17,12 @@
             </ul>
             <form class="form-inline my-2 my-lg-0"> 
               <ul class="navbar-nav mr-auto">
+              <%# bootstrapをあてれない %>
                 <li class="nav-item">
-                  <a class="nav-link" href="/users/show">プロフィール</a>
+                  <a class="nav-link"><%= link_to "プロフィール", current_user %></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/users/#{params[:id]}">プロフィール</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" data-method="delete" href="/users/sign_out">ログアウト</a>
