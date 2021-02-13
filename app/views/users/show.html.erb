@@ -1,7 +1,7 @@
 <% provide(:title, "プロフィール") %>
 <h1>プロフィール</h1>
 <% if @user.avatar.attached? %>
-    <p><%= image_tag @user.avatar.variant(resize_to_limit: [200, 200]) %></p>
+    <p><%= image_tag @user.avatar.variant(combine_options:{gravity: :center, resize:"200x200^", crop:"200x200+0+0"}).processed %></p>
 <% end %>
 
 <div class="col-md-8">
