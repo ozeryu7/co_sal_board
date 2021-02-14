@@ -18,15 +18,15 @@ class UsersController < ApplicationController
     def following
         #@userがフォローしているユーザー
         @user  = User.find(params[:id])
-        @users = @user.following
+        @users = @user.following.page(params[:page]).per(5)
         render 'show_follow'
     end
 
     def follower
         #@userをフォローしているユーザー
         @user  = User.find(params[:id])
-        @users = @user.followers
-        render 'show_follower'
+        @users = @user.followers.page(params[:page]).per(5)
+        render 'show_follow'
     end
 
   private

@@ -4,8 +4,10 @@
     <div class="row">
       <aside class="col-md-4">
         <section class="user_info">
-          <%= @user.avatar %>
-          <h1><%= @user.name %></h1>
+        <% if @user.avatar.attached? %>
+            <p><%= image_tag @user.avatar.variant(combine_options:{gravity: :center, resize:"200x200^", crop:"200x200+0+0"}).processed %></p>
+        <% end %>
+          <h2><%= @user.name %></h2>
           <span><%= link_to "プロフィール", @user %></span>
           <span><b>投稿</b><%= @user.posts.count %><b>件</b></span>
         </section>
