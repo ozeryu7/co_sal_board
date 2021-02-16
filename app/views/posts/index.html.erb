@@ -26,9 +26,10 @@
           <div class="post-user"> <%= link_to post.user.name, user_path(post.user) %></div>
             <div class="col-md-6">
              <div class="dish-created-at">
-              <%= time_ago_in_words(post.created_at) %>前に投稿
+              <span aria-hidden="true"><%= time_ago_in_words(post.created_at) %>前に投稿</span>
              </div>
             </div>
+                   <hr class="my-4">
         <% end %>
      <% else %>
         <p>ログインしてください</p>
