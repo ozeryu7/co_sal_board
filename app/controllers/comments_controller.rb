@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     else
       @post = Post.find(params[:post_id])
       flash.now[:alert] = "コメントの投稿に失敗しました。"
-      render "posts/#{params[:post_id]}"
+      render template: 'posts/show'
     end
   end
 
@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
 
       if @comment.user_id != current_user.id
-        flash[:notice] = "権限はありませｎ"
+        flash[:notice] = "権限はありません"
         redirect_to post_path(@comment.post_id)
       end
     end

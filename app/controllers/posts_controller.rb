@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     # @posts = Post.includes(:user).all.order("created_at DESC").page(params[:page]).per(5)
+    @search_word = params[:q][:name_cont] if params[:q]
     @search = Post.ransack(params[:q])
     @results = @search.result.order("created_at DESC").page(params[:page]).per(5)
   end
@@ -74,5 +75,4 @@ class PostsController < ApplicationController
       redirect_to("/posts/#{@post.id}")
     end
   end
-
 end
