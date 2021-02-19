@@ -19,17 +19,14 @@
               <ul class="navbar-nav mr-auto">
               <!-- bootstrapをあてれない -->
                 <li class="nav-item">
-                  <a class="nav-link"><%= link_to "プロフィール", current_user %></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/users/#{params[:id]}">プロフィール</a>
+                  <%= link_to "プロフィール", current_user, class: "nav-link" %>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" data-method="delete" href="/users/sign_out">ログアウト</a>
                 </li>
               </ul>
               <input class="form-control mr-sm-2" type="text" placeholder="Search">
-              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+              <button class="btn btn-secondary my-2 my-sm-0" type="submit">検索</button>
             </form>
           </div>
        <% else %>

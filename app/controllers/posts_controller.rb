@@ -3,7 +3,10 @@ class PostsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.includes(:user).all.order("created_at DESC").page(params[:page]).per(5)
+    # @posts = Post.includes(:user).all.order("created_at DESC").page(params[:page]).per(5)
+    @search_word = params[:q][:name_cont] if params[:q]
+    @search = Post.ransack(params[:q])
+    @results = @search.result.order("created_at DESC").page(params[:page]).per(5)
   end
 
   def show
@@ -42,6 +45,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    # 不思議なコード
     @post.destroy
     flash[:notice] = "削除しました"
     redirect_to root_url
@@ -71,5 +75,4 @@ class PostsController < ApplicationController
       redirect_to("/posts/#{@post.id}")
     end
   end
-
 end

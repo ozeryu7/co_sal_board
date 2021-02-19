@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.page
+    # @users = User.page
+
   end
  
   def show

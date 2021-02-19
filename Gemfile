@@ -51,6 +51,7 @@ gem 'image_processing', '~>1.2'
 gem 'kaminari'
 gem 'bootswatch', github: "thomaspark/bootswatch"
 gem "gretel"
+gem 'ransack'
 
 group :production do
  gem 'pg'
