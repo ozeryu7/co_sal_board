@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 2021_02_07_010545) do
     t.string "image"
     t.string "shoes_color"
     t.string "shirts_color"
+    t.string "place"
+    t.string "category"
     t.date "date"
   end
 
@@ -86,7 +88,7 @@ ActiveRecord::Schema.define(version: 2021_02_07_010545) do
     t.string "provider"
     t.string "uid"
     t.text "introduction"
-    t.string "sex"
+    t.string "familiar_place"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

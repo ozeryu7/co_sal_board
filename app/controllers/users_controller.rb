@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
     # プロフィール編集時に許可する属性
   def user_params_update
-    params.require(:user).permit(:name, :email, :introduction, :sex)
+    params.require(:user).permit(:name, :email, :introduction, :familiar_place)
   end
 
     # 正しいユーザーかどうか確認
