@@ -1,15 +1,19 @@
 <h1>投稿を入力</h1>
 <%= form_with model: @post, local: true do |form| %>
+  <p><%= form.label :date, "行った日" %> <span class="input-need">※必須</span></p>
+  <p><input type="date"></p>
+  
   <p><%= form.label :title, "タイトル" %> <span class="input-need">※必須</span> <%= form.text_field :title, class: 'form-control' %></p>
   <p><%= form.label :content, "内容" %> <span class="input-need">※必須</span> <%= form.text_field :content, class: 'form-control' %></p>
   <p><%= form.label :place, "フットサル場" %> <span class="input-need">※必須</span> <%= form.text_field :place, class: 'form-control' %></p>
-  <p><%= form.label :category, "カテゴリー" %> <span class="input-need">※必須</span> <%= form.text_field :category, class: 'form-control' %></p>
+
+　<p><%= form.label :category, "カテゴリー" %><%= form.select :category, [["ウルトラビギナー", "ウルトラビギナー"], ["ビギナー", "ビギナー"], ["エンジョイ", "エンジョイ"], ["ガチ", "ガチ"]], include_blank: "選択して下さい" %></p>
+
   <p><%= form.label :shoes_color, "シューズの色" %> <span class="input-unneed">※任意</span> <%= form.text_field :shoes_color, class: 'form-control' %></p>
   <p><%= form.label :shirts_color, "シャツの色" %> <span class="input-unneed">※任意</span> <%= form.text_field :shirts_color, class: 'form-control' %></p>
 
 
   <p><%= form.label :images, "画像" %> <span class="input-unneed">※任意</span> <%= form.file_field :images, multiple: true %></p>
-  <p><%= form.label :date, "行った日" %> <span class="input-need">※必須</span> </p>
-  <p><input type="date"></p>
+
   <%= form.submit "送信", class: "btn btn-primary" %>
 <% end %>

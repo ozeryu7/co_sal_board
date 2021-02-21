@@ -8,16 +8,14 @@
          <%= search_form_for @search, url: posts_path do |f| %>
            キーワード検索<br>
            <%= f.search_field :title_or_content_cont, class: 'form-control mr-sm-2', placeholder: "Search" %>
-           <%= f.submit '検索', class: "btn btn-secondary" %>
+           <%= f.submit '検索', class: "btn btn-success" %>
          <% end %>
         <% @results.each do |post| %>
           <div class="post">
        <div class="col-sm-8 orange">
-              <p><%= post.date %></p>
-              <p><%= post.title %></p>
-              <p><%= simple_format(post.content) %></p>
-              <p><%= post.shoes_color %></p>
-              <p><%= post.shirts_color %></p>
+              <p><span>行った日: </span><%= post.date %></p>
+              <p><span>タイトル: </span><%= post.title %></p>
+              <p><span>内容: </span><%= simple_format(post.content) %></p>
           <span class="picture">
             <% if post.images.attached? %>
               <% post.images.each do |image| %>
