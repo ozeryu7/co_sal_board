@@ -341,7 +341,6 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    mysql2 (0.5.3)
     netrc (0.11.0)
     nio4r (2.5.5)
     nokogiri (1.11.1)
@@ -514,7 +513,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -572,7 +570,6 @@ DEPENDENCIES
   letter_opener_web
   listen (~> 3.2)
   mini_magick
-  mysql2 (>= 0.4.4)
   omniauth (= 1.9.1)
   omniauth-facebook
   omniauth-google-oauth2
@@ -592,7 +589,6 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
-  sqlite3
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
