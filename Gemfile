@@ -9,7 +9,7 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-gem 'bootstrap'
+# gem 'bootstrap'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'rails-i18n', '~> 6.0'
@@ -43,13 +43,13 @@ gem 'omniauth', '1.9.1'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'font-awesome-sass'
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 gem 'data-confirm-modal'
 gem 'dotenv-rails'
 gem 'mini_magick'
 gem 'image_processing', '~>1.2'
 gem 'kaminari'
-gem 'bootswatch', github: "thomaspark/bootswatch"
+# gem 'bootswatch', github: "thomaspark/bootswatch"
 gem "gretel"
 gem 'ransack'
 
