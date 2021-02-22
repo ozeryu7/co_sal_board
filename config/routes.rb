@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: "posts#index"
+  # root to: "posts#index"
+  root to: 'static_pages#about'
   get :about,         to: 'static_pages#about'
   get :use_of_terms,  to: 'static_pages#terms'
 
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
-  
+
   resources :relationships, only: [:create, :destroy]
   resources :posts do
     resources :likes, only: [:create]
