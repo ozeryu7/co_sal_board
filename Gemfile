@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rubocop-airbnb'
   gem "factory_bot_rails", "~> 4.10.0"
+  gem 'sqlite3'
 end
 
 group :development do
@@ -49,7 +50,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
-  # gem 'sqlite3'
+
 end
 
 group :production do
@@ -60,5 +61,5 @@ end
 group :test do
  gem 'capybara', '>= 2.15'
  gem 'selenium-webdriver'
- gem 'rspec-rails'
+#  gem 'rspec-rails'
 end
