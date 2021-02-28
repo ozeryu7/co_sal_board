@@ -12,7 +12,7 @@
          <% end %>
         <% @results.each do |post| %>
           <div class="post">
-       <div class="col-sm-8 orange">
+            <div class="col-sm-8 orange">
               <p><span>行った日: </span><%= post.date %></p>
               <p><span>タイトル: </span><%= post.title %></p>
               <p><span>内容: </span><%= simple_format(post.content) %></p>

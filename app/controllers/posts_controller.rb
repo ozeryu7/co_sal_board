@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   private
 #ストロングパラメータでpermitに渡された値以外を受け取らないようにする
   def post_params
-    params.require(:post).permit(:title, :content, :shoes_color, :shirts_color, :place, :category, :date, images: []).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :date, :content, :shoes_color, :shirts_color, :place, :category, images: []).merge(user_id: current_user.id)
   end
 
   def authenticate_admin!

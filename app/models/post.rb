@@ -8,6 +8,8 @@ class Post < ApplicationRecord
   validate :image_size
   validates :title, presence: true, length: {maximum: 140 }
   validates :content, length: { maximum: 3000 }
+  validates :date, presence: true
+
 
   private
 

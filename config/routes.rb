@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # root to: "posts#index"
-  root to: 'static_pages#about'
+  root to: "posts#index"
   get :about,         to: 'static_pages#about'
   get :use_of_terms,  to: 'static_pages#terms'
 
@@ -15,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+    post '/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
   resources :users, only: [:show, :create, :edit, :update, :destroy] do

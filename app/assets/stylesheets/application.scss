@@ -11,15 +11,19 @@
  * It is generally better to create a new file per style scope.
  *
  */
+// *= require bootstrap-honoka/dist/css/bootstrap.min.css
+// *= require font-awesome
+
+// @import '~bootswatch/dist/minty/variables';
+// @import '~bootstrap/scss/bootstrap';
+// @import '~bootswatch/dist/minty/bootswatch';
+// @import '~bootstrap-honoka/dist/css/bootstrap';
+// @import "bootstrap-sprockets";
+// @import "honoka";
 
  $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
  @import "font-awesome-sprockets";
  @import "font-awesome";
- @import "bootstrap";
-//  @import "*";
-//  @import "cerulean/variables";
-//   @import "cerulean/bootswatch";
-
 
 /*ページネーション自体のデザイン*/
 .pagination>li>a {          
