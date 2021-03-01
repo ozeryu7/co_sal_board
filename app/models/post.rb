@@ -11,7 +11,7 @@ class Post < ApplicationRecord
 
   private
 
-  #一つにしても良いので後ほどやる
+  #一つにしても良いので後ほどやるelseif
   def image_type
     if images.attached?
       images.each do |image|

@@ -1,2 +1,41 @@
-<% provide(:title, "Co-sal Boardとは?") %>
-<h1>Co-sal Boardとは</h1>
+<%# <%= javascript_pack_tag '/', 'data-turbolinks-track': 'reload' %>
+<section id="top">
+  <div class="top-wrapper mb-4">
+    <div class="slide">
+      <% image_tag "futsal-image.jpg", alt: "Rails icon", id: "assets", class: "image", width: "300px" %>
+      <img src="<%= root_path "#" %>">
+      <img src="<%= root_path "#" %>">
+      <img src="<%= root_path "#" %>">
+    </div>
+    <div class="top_message">
+      <h2>個サルをきっかけにつながろう</h2>
+      <p>個サルで共にプレーして仲良くなりたいのにきっかけがない...<br>そんな経験から生まれたサービスです</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="top_content_info">
+      <div class="content_title">イベント情報</div>
+      <div class="text-center">
+        <%= link_to "もっとみる", '#', class: "btn btn-outline-info btn-lg w-25" %>
+      </div>
+    </div>
+    <div class="top_content_info">
+      <div class="content_title">エントリー募集中の大会</div>
+      <section id="tournament_index">
+        <div class="tournaments-wrapper">
+          <%# <%= render("posts/index") %>
+        </div>
+      </section>
+      <div class="text-center">
+        <%= link_to  "大会情報一覧", posts_path, class: "btn btn-outline-info btn-lg w-25" %>
+      </div>
+    </div>
+    <div class="top_content_info">
+      <div class="content_title">釣果情報</div>
+      <div class="text-center">
+        <%= link_to  "もっとみる", '#', class: "btn btn-outline-info btn-lg w-25" %>
+      </div>
+    </div>
+  </div>
+</section>
+
