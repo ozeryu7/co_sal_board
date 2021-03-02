@@ -5,15 +5,15 @@
     <div class="row">
       <div class="orange">
        <% if user_signed_in? %>
-        <div class="c-header_search">
+        <div class="col-md-4">
           <%= search_form_for @search, url: posts_path do |f| %>
-            <%= f.search_field :title_or_content_cont, placeholder: "タイトルか内容で検索" %>
+            <%= f.search_field :title_or_content_cont, placeholder: "タイトルか内容で検索", class: 'form-control' %>
           <% end %>
          </div>
          <% @results.each do |post| %>
           <div class="post">
            
-            <div class="d-flex flex-row orange">
+            <hr><div class="d-flex flex-row mt-3 orange">
               <div class="picture">
                 <% if post.images.attached? %>
                   <% post.images.each do |image| %>
@@ -22,13 +22,18 @@
                 <% end %>
                 <div id="post_<%= post.id %>">  
                   <%= render partial: 'likes/like', locals: { post: post } %>
+                  </div>
+                  <div id="post_<%= post.id %>">  
+                  <%= render partial: 'metoos/metoo', locals: { post: post } %>
                 </div>
               </div>
 
+
               <div class="mx-5">
-                <p>行った日:<%= post.date %></p>
-                <p>タイトル: <%= post.title %></p>
-                <p>内容: <%= simple_format(post.content) %></p>
+                <p>行った日 : <%= post.date.strftime("%Y年%m月%d日") %></p>
+                <p>場所 : <%= post.place %></p>
+                <p>タイトル : <%= post.title %></p>
+                <p>内容 : <%= simple_format(post.content) %></p>
               </div>
            
              <div>

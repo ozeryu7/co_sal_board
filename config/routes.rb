@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :likes, only: [:create]
     resource :like, only: [:destroy]
+    resources :metoos, only: [:create]
+    resource :metoo, only: [:destroy]
     resources :comments, only: [:create]
   resources :comments, only: [:edit, :update, :destroy]
   end

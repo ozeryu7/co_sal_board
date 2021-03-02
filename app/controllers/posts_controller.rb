@@ -25,7 +25,7 @@ class PostsController < ApplicationController
       redirect_to root_url
     else
       flash.now[:alert] = "投稿に失敗しました。"
-      render("posts/new")
+      render("posts/index")
     end
   end
 
