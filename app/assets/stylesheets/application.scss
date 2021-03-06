@@ -15,6 +15,7 @@
  $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
  @import "font-awesome-sprockets";
  @import "font-awesome";
+ @import "top";
 //  @import "bootstrap";
 
 /*ページネーション自体のデザイン*/
@@ -45,3 +46,64 @@
 a {
   text-decoration: none;
 }
+
+
+#main_wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body{
+  background-color: #f5faff;
+  color: #555555;
+  line-height: 2;
+  font-family: 'Helvetica Neue','Helvetica','Arial','YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+  font-size: 1.6rem;
+}
+.container{
+  margin: auto;
+  padding: 0;
+}
+.small-container{
+  margin: auto;
+  padding: 0 100px 0 100px;
+}
+.navbar-brand {
+  font-size: 30px;
+  margin: 0 50px 0 20px ;
+}
+.nav-item {
+  font-size: 20px;
+  :hover{
+    color: white;
+    text-decoration: none;
+  }
+}.dropdown-menu {
+  background-color: #f5faff;
+}
+.dropdown-item {
+  color: #555555;
+}
+.dropdown-item:hover{
+  background-color: #CCCCCC;
+}
+
+.myicon {
+  margin: 0 0 0 auto;
+  position:relative;
+  display:inline-block;
+  cursor:pointer;
+  img{
+    margin-right: 8px;
+    position: relative;
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}
+
+footer{
+  margin-top: auto;
+}
+

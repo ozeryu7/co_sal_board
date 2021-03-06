@@ -1,37 +1,38 @@
-<% provide(:title, "プロフィール") %>
-<h1>プロフィール</h1>
-<% if @user.avatar.attached? %>
-    <p><%= image_tag @user.avatar.variant(combine_options:{gravity: :center, resize:"200x200^", crop:"200x200+0+0"}).processed %></p>
-<% end %>
-
-<div class="col-md-8">
-  <h4 class="show-user-name">
-    <%= @user.name %><br>
-  </h4>
-  <div class="show-user-introduction">
-    <%= @user.introduction %>
-  </div>
-  <%= @user.created_at.to_s(:datetime_jp) %><br>
-  <%= @user.updated_at.to_s(:datetime_jp) %><br>
-
-  <section class="stats">
-    <%= render 'devise/shared/stats' %>
-  </section>
-
-  <% if current_user.id == @user.id %>
-    <a class="nav-link" href="/users/edit">プロフィール編集</a>
-  <% end %>
-  <%= render 'follow_form' if user_signed_in? %>
-</div>
-    <div class="row">
-      <div class="col-md-9">
-        <% if @user.posts.any? %>
-          <h3>投稿数 <%= @user.posts.count %>件</h3>
- <!--プロフィールに表示しているユーザーの投稿一覧を見せる -->
-        <% end %>
-<% if @metoo_list.present? %>
-  <% @metoo_list.each do |post| %>
-    <%= post.title %>
-    <%= post.content %>
-  <% end %>
-<% end %>
+<div class="container">
+  <% provide(:title, "マイページ") %>
+    <h1>マイページ</h1>
+      <% if @user.avatar.attached? %>
+        <p><%= image_tag @user.avatar.variant(combine_options:{gravity: :center, resize:"200x200^", crop:"200x200+0+0"}).processed %></p>
+      <% end %>
+      <div class="col-md-8">
+        <h4 class="show-user-name">
+          <%= @user.name %><br>
+        </h4>
+        <div class="show-user-introduction">
+          <%= @user.introduction %>
+        </div>
+          <%= @user.created_at.to_s(:datetime_jp) %><br>
+          <%= @user.updated_at.to_s(:datetime_jp) %><br>
+          <section class="stats">
+            <%= render 'devise/shared/stats' %>
+          </section>
+          <% if current_user.id == @user.id %>
+            <a class="nav-link" href="/users/edit">プロフィール編集</a>
+          <% end %>
+            <%= render 'follow_form' if user_signed_in? %>
+      </div>
+        <div class="row">
+          <div class="col-md-9">
+            <% if @user.posts.any? %>
+              <h3>投稿数 <%= @user.posts.count %>件</h3>
+              <!--プロフィールに表示しているユーザーの投稿一覧を見せる -->
+            <% end %>
+            <% if @metoo_list.present? %>
+              <% @metoo_list.each do |post| %>
+                <%= post.title %><br>
+                <%= post.content %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>

@@ -1,18 +1,51 @@
-<%# <%= javascript_pack_tag '/', 'data-turbolinks-track': 'reload' %>
 <section id="top">
   <div class="top-wrapper mb-4">
     <div class="slide">
-      <% image_tag "futsal-image.jpg", alt: "Rails icon", id: "assets", class: "image", width: "300px" %>
 
-      <!--
-      <img src="<%= root_path "#" %>">
-      <img src="<%= root_path "#" %>">
-      <img src="<%= root_path "#" %>">
-      -->
+<div id="carouselOption1" class="carousel slide" data-bs-ride="carousel">
+  <!-- インジケータの設定 -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselOption1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="スライド 1"></button>
+    <button type="button" data-bs-target="#carouselOption1" data-bs-slide-to="1" aria-label="スライド 2"></button>
+    <button type="button" data-bs-target="#carouselOption1" data-bs-slide-to="2" aria-label="スライド 3"></button>
+  </div>
+  <!-- スライドさせる画像の設定 -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="<%= asset_path "top/top1_img.jpg" %>">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>第1スライド ラベル</h5>
+        <p>1番目のスライドの代表的なプレースホルダーコンテンツ。</p>
+      </div>
     </div>
-    <div class="top_message">
-      <h2>個サルをきっかけにつながろう</h2>
-      <p>個サルで共にプレーして仲良くなりたいのにきっかけがない...<br>そんな経験から生まれたサービスです</p>
+    <div class="carousel-item">
+      <img src="<%= asset_path "top/top2_img.jpg" %>">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>第2スライド ラベル</h5>
+        <p>2番目のスライドの代表的なプレースホルダーコンテンツ。</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="<%= asset_path "top/top3_img.jpg" %>">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>第3スライド ラベル</h5>
+        <p>3番目のスライドの代表的なプレースホルダーコンテンツ。</p>
+      </div>
     </div>
   </div>
+  <!-- スライドコントロールの設定 -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselOption1" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">前へ</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselOption1" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">次へ</span>
+  </button>
+</div>
+
+
+ </div>
+</div>
+
 </section>
