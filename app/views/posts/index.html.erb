@@ -22,12 +22,11 @@
                 <% end %>
                 <div id="post_<%= post.id %>">  
                   <%= render partial: 'likes/like', locals: { post: post } %>
-                  </div>
-                  <div id="post_<%= post.id %>">  
+                </div>
+                <div id="metoo_<%= post.id %>">  
                   <%= render partial: 'metoos/metoo', locals: { post: post } %>
                 </div>
               </div>
-
 
               <div class="mx-5">
                 <p>行った日 : <%= post.date.strftime("%Y年%m月%d日") %></p>

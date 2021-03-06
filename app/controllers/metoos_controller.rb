@@ -1,17 +1,20 @@
 class MetoosController < ApplicationController
-    before_action :setting_post
+    before_action :set_post
+    # before_aciton :authenticate_user!
 
   def create
-    Metoo.create(user_id: current_user.id, post_id: params[:post_id])
+    if @post.user_id != current_user.id
+      @metoo = Metoo.create(user_id: current_user.id, post_id: @post.id)
+    end
   end
 
   def destroy
-    Metoo.find_by(user_id: current_user.id, post_id: params[:post_id]).destroy
+    @metoo = Metoo.find_by(user_id: current_user.id, post_id: @post.id).destroy
   end
 
   private
 
-  def setting_post
+  def set_post
     @post = Post.find(params[:post_id])
   end
 end

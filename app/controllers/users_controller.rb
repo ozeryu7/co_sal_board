@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(5)
+
+    metoos = Metoo.where(user_id: current_user.id).pluck(:post_id)  # ログイン中のユーザーの行ったよのpost_idカラムを取得
+    @metoo_list = Post.find(metoos)     # postsテーブルから、お気に入り登録済みのレコードを取得
   end
 
   def edit

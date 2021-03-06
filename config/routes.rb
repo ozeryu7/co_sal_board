@@ -19,7 +19,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :create, :edit, :update, :destroy] do
     member do
+      # get :metoos, on: :collection
       get :following, :followers
+
     end
   end
 

@@ -29,3 +29,9 @@
           <h3>投稿数 <%= @user.posts.count %>件</h3>
  <!--プロフィールに表示しているユーザーの投稿一覧を見せる -->
         <% end %>
+<% if @metoo_list.present? %>
+  <% @metoo_list.each do |post| %>
+    <%= post.title %>
+    <%= post.content %>
+  <% end %>
+<% end %>

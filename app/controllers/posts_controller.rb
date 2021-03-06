@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:notice] = "投稿が完了しました。"
-      redirect_to root_url
+      redirect_to posts_path
     else
       flash.now[:alert] = "投稿に失敗しました。"
       render("posts/index")
