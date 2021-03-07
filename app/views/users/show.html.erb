@@ -11,11 +11,11 @@
         <div class="show-user-introduction">
           <%= @user.introduction %>
         </div>
-          <%= @user.created_at.to_s(:datetime_jp) %><br>
-          <%= @user.updated_at.to_s(:datetime_jp) %><br>
+          <p>登録日 : <%= @user.created_at.to_s(:datetime_jp) %></p>
+          <p>更新日 : <%= @user.updated_at.to_s(:datetime_jp) %></p>
           <section class="stats">
             <%= render 'devise/shared/stats' %>
-          </section>
+          </section><br>
           <% if current_user.id == @user.id %>
             <a class="nav-link" href="/users/edit">プロフィール編集</a>
           <% end %>
@@ -25,13 +25,14 @@
           <div class="col-md-9">
             <% if @user.posts.any? %>
               <h3>投稿数 <%= @user.posts.count %>件</h3>
-              <!--プロフィールに表示しているユーザーの投稿一覧を見せる -->
-            <% end %>
-            <% if @metoo_list.present? %>
+
+            <!--プロフィールに表示しているユーザーの投稿一覧を見せる -->
               <% @metoo_list.each do |post| %>
-                <%= post.title %><br>
-                <%= post.content %>
+                <p>行った日 : <%= post.date.strftime("%Y年%m月%d日") %></p>
+                <p>タイトル ： <%= post.title %></p>
+                <p>内容 ： <%= post.content %></p><hr>
               <% end %>
+ 
             <% end %>
           </div>
         </div>
