@@ -1,17 +1,15 @@
   <div class="container">
   <h1>投稿一覧</h1>
     <div class="row">
-      <div class="orange">
        <% if user_signed_in? %>
         <div class="col-md-4">
           <%= search_form_for @search, url: posts_path do |f| %>
             <%= f.search_field :title_or_content_cont, placeholder: "タイトルか内容で検索", class: 'form-control' %>
           <% end %>
-         </div>
-         <% @results.each do |post| %>
-          <div class="post">
-           
-            <hr><div class="d-flex flex-row mt-3 orange">
+        </div>
+        <% @results.each do |post| %>
+          <div class="post">  
+            <hr><div class="d-flex flex-row mt-3">
               <div class="picture">
                 <% if post.images.attached? %>
                   <% post.images.each do |image| %>
@@ -51,7 +49,6 @@
 
         <% end %>
       </div>  
-   </div>
   </div>
      <% else %>
         <p>ログインしてください</p>

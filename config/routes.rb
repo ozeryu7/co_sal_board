@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'static_pages#about'
+  root to: 'posts#index'
   get :about,         to: 'static_pages#about'
   get :use_of_terms,  to: 'static_pages#terms'
 
@@ -19,9 +19,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :create, :edit, :update, :destroy] do
     member do
-      # get :metoos, on: :collection
       get :following, :followers
-
     end
   end
 
