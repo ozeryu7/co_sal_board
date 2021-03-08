@@ -76,7 +76,7 @@ https://co-sal-board.herokuapp.com/
 + コメント削除機能 ( ログイン済み投稿者のみ表示 )
 
 ## ER図
-<img width="635" alt="" src=
+
 
 ## 課題、今後実装したい機能
 * AWSへデプロイ
@@ -86,5 +86,5 @@ https://co-sal-board.herokuapp.com/
 現在28歳、東証一部上場某インフラメーカー勤務をして5年目になります。
 webエンジニアを目指して日々勉強しアウトプットを行なっています。  
 [Twitter](https://twitter.com/ozeryu7)  
-[Qiita](https://qiita.com/otterminal)
+[Qiita](https://qiita.com/ozeryu7)
 E-Mail: [ozeki.ryusuke@gmail.com](ozeki.ryusuke@gmail.com)
