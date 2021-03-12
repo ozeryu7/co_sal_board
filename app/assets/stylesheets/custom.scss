@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // @import "../../../node_modules/bootswatch/dist/minty/variables";
 // @import "../../../node_modules/bootstrap/scss/bootstrap";
 // @import "../../../node_modules/bootswatch/dist/minty/bootswatch";
@@ -40,3 +41,13 @@
  //.container .text-muted {
  //  margin: 20px 0;
  //}
+=======
+
+// ミックスイン
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+>>>>>>> main

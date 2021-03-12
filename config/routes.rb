@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   root to: "posts#index"
+=======
+  root to: 'posts#index'
+>>>>>>> main
   get :about,         to: 'static_pages#about'
   get :use_of_terms,  to: 'static_pages#terms'
 
@@ -28,6 +32,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :likes, only: [:create]
     resource :like, only: [:destroy]
+    resources :metoos, only: [:create]
+    resource :metoo, only: [:destroy]
     resources :comments, only: [:create]
   resources :comments, only: [:edit, :update, :destroy]
   end

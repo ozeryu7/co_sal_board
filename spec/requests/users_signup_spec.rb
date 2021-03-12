@@ -1,5 +1,5 @@
 require "rails_helper"
-Rspec.describe "ユーザー登録", type: :request do
+RSpec.describe "ユーザー登録", type: :request do
   before do
     get signup_path
   end

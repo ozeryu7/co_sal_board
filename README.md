@@ -1,24 +1,94 @@
-# README
+## ANGLER
+【トップ画面の全体画像】
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリの概要
+個サル
 
-Things you may want to cover:
+詳細な情報は下記をご覧ください
+[Qiita:ポートフォリオの解説]
 
-* Ruby version
+## URL
+下記のページで公開しています
 
-* System dependencies
 
-* Configuration
+* テストの場合はゲストユーザーとしてログインできます。
+* スマートフォンからもご覧いただけます。
 
-* Database creation
 
-* Database initialization
+## 使用技術
+* Ruby 2.6.6, Rails 6.0.3.2
+* PostgreSQL 13.0
+* AWS S3
+* HTML, Sass, javascript, jQuery
 
-* How to run the test suite
+## 使い方
+### 個サルの新規投稿
+1.
+### コメント
+1.
+### 大会へ投稿
+1.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 機能一覧
+### 認証機能  
++ サインイン、サインアップ機能 ( devise )  
+  * email、パスワード、ユーザー名必須  
+  * ゲストログイン機能( アカウント削除・プロフィール編集不可 )
+  * omniauth認証によるSNSログイン( Facebook )  
++ パスワード編集機能 ( devise )
 
-* ...
+### 投稿機能
++ 新規投稿ページ
+  * 新規投稿機能
+  * 投稿確認機能
+  * 画像投稿機能( ActiveStorage )
++ 投稿一覧ページ
++ 投稿詳細ページ
+  * コメント表示機能
+  * いいね機能
+  * 投稿編集ボタンの設置 ( ログイン済み投稿者のみ表示 )
+  * 投稿削除ボタンの設置 ( ログイン済み投稿者のみ表示 )
++ 投稿編集ページ
+  * 投稿編集機能
+
++ ページネーション機能
+### ユーザー機能
++ マイページ  
+  * 自身のページ以外は設定アイコン非表示
+  * 自身の投稿、コメントした投稿、いいねした投稿、お気に入りした投稿をスライドバーにて表示( jquery )
++ ユーザープロフィール編集ページ
+  * ユーザー名、メールアドレス、パスワード、プロフィール画像
+
++ セッティングページ
+  * アカウント削除機能
+  * ログアウト機能
+  * フッター各種リンク( about、利用規約、お問い合わせ、プライバシーポリシー )
+### 検索機能
++ カテゴリー別チェックボックス、フリーワードにて検索可能。併用で検索も可能 ( ransack )
+### 通知機能
++ ヘッダー部ベルマークにて通知機能を実装 ( コメント、いいねされた時に通知 )
++ 新規通知バッジ機能
++ ページネーション機能
++ ページネーションの非同期通信化 ( Ajax )
+### いいね・お気に入り機能
++ 非同期通信にて即時反映( Ajax )
+### コメント機能
++ 各投稿にコメント機能を実装
++ コメント削除機能 ( ログイン済み投稿者のみ表示 )
+
+## ER図
+<img width="635" alt="" src=
+
+## 課題、今後実装したい機能
+* 個人釣果データを集計＆分析できるようにグラフ化
+* 釣果投稿にAPIを使用して天候を付け加える
+* ルール違反発見時の報告機能と対策機能
+* AWSへデプロイ
+
+## About me
+現在28歳で某インフラメーカー勤務の5年目になります。
+webエンジニアを目指して日々勉強しアウトプットを行なっています。  
+[Twitter](https://twitter.com/ozeryu7)  
+[Qiita](https://qiita.com/otterminal)
+E-Mail: [ozeki.ryusuke@gmail.com](ozeki.ryusuke@gmail.com)

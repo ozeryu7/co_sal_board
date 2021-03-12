@@ -7,7 +7,7 @@ class Users::SessionsController < Devise::SessionsController
       user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
     sign_in user
-    redirect_to root_path, notice: 'ゲストログインしました。'
+    redirect_to posts_path, notice: 'ゲストログインしました。'
   end
 
   # GET /resource/sign_in

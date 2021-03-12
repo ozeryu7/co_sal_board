@@ -1,16 +1,14 @@
-<h1>投稿一覧</h1>
-  <%# <div id="breadcrumbs" ></div>
-    <%= render partial: "layouts/breadcrumbs" %>
   <div class="container">
+  <h1>投稿一覧</h1>
     <div class="row">
-      <div class="col-sm-4 orange">
        <% if user_signed_in? %>
-         <%= search_form_for @search, url: posts_path do |f| %>
-           キーワード検索<br>
-           <%= f.search_field :title_or_content_cont, class: 'form-control mr-sm-2', placeholder: "Search" %>
-           <%= f.submit '検索', class: "btn btn-success" %>
-         <% end %>
+        <div class="col-md-4">
+          <%= search_form_for @search, url: posts_path do |f| %>
+            <%= f.search_field :title_or_content_cont, placeholder: "タイトルか内容で検索", class: 'form-control' %>
+          <% end %>
+        </div>
         <% @results.each do |post| %>
+<<<<<<< HEAD
           <div class="post">
             <div class="col-sm-8 orange">
               <p><span>行った日: </span><%= post.date %></p>
@@ -33,13 +31,49 @@
             <% end %>
           </div>
           <div class="post-user"> <%= link_to post.user.name, user_path(post.user) %></div>
+=======
+          <div class="post">  
+            <hr><div class="d-flex flex-row mt-3">
+              <div class="picture">
+                <% if post.images.attached? %>
+                  <% post.images.each do |image| %>
+                    <p><%= image_tag image.variant(resize_to_limit: [300, 300]) %></p>
+                  <% end %>
+                <% end %>
+                <div id="post_<%= post.id %>">  
+                  <%= render partial: 'likes/like', locals: { post: post } %>
+                </div>
+                <div id="metoo_<%= post.id %>">  
+                  <%= render partial: 'metoos/metoo', locals: { post: post } %>
+                </div>
+              </div>
+>>>>>>> main
 
-             <div class="post-created-at">
-              <%= time_ago_in_words(post.created_at) %>前に投稿
+              <div class="mx-5">
+                <p>行った日 : <%= post.date.strftime("%Y年%m月%d日") %></p>
+                <p>場所 : <%= post.place %></p>
+                <p>タイトル : <%= post.title %></p>
+                <p>内容 : <%= simple_format(post.content) %></p>
+              </div>
+           
+             <div>
+              <div class="post-user">
+                <%= link_to post.user.name, user_path(post.user) %>
+              </div>
+              <div class="post-created-at">
+                <%= time_ago_in_words(post.created_at) %>前に投稿
+              </div>
              </div>
+          </div>
+
+              <%= link_to "詳細", post, class: "btn btn-link" %>
+              <% if user_signed_in? && current_user.id == post.user_id %>
+                <%= link_to "編集", edit_post_path(post.id), class: "btn btn-link" %>
+                <%= link_to "削除", post, method: :delete, data: { confirm: '本当に削除していいですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認', class: "btn btn-link" %>
+              <% end %>
+
         <% end %>
       </div>  
-   </div>
   </div>
      <% else %>
         <p>ログインしてください</p>

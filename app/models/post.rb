@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
+  has_many :metoos, dependent: :destroy
   has_many :comments, dependent: :destroy
   belongs_to :user
   has_many_attached :images
@@ -13,7 +14,7 @@ class Post < ApplicationRecord
 
   private
 
-  #一つにしても良いので後ほどやる
+  #一つにしても良いので後ほどやるelseif
   def image_type
     if images.attached?
       images.each do |image|
