@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     # @users = User.page
-
   end
  
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(5)

@@ -8,30 +8,6 @@
           <% end %>
         </div>
         <% @results.each do |post| %>
-<<<<<<< HEAD
-          <div class="post">
-            <div class="col-sm-8 orange">
-              <p><span>行った日: </span><%= post.date %></p>
-              <p><span>タイトル: </span><%= post.title %></p>
-              <p><span>内容: </span><%= simple_format(post.content) %></p>
-          <span class="picture">
-            <% if post.images.attached? %>
-              <% post.images.each do |image| %>
-                <p><%= image_tag image.variant(resize_to_limit: [300, 300]) %></p>
-              <% end %>
-            <% end %>
-          </span>
-            <div id="post_<%= post.id %>">  
-              <%= render partial: 'likes/like', locals: { post: post } %>
-            </div>
-              <p><%= link_to "詳細", post, class: "btn btn-primary" %></p>
-            <% if user_signed_in? && current_user.id == post.user_id %>
-              <p><%= link_to "編集", edit_post_path(post.id), class: "btn btn-primary" %></p>
-              <p><%= link_to "削除", post, method: :delete, data: { confirm: '本当に削除していいですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認', class: "btn btn-danger" %></p>
-            <% end %>
-          </div>
-          <div class="post-user"> <%= link_to post.user.name, user_path(post.user) %></div>
-=======
           <div class="post">  
             <hr><div class="d-flex flex-row mt-3">
               <div class="picture">
@@ -47,7 +23,6 @@
                   <%= render partial: 'metoos/metoo', locals: { post: post } %>
                 </div>
               </div>
->>>>>>> main
 
               <div class="mx-5">
                 <p>行った日 : <%= post.date.strftime("%Y年%m月%d日") %></p>

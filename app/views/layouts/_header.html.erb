@@ -1,18 +1,4 @@
 <header> 
-<<<<<<< HEAD
-  <div class="container">
-   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-     <a class="navbar-brand" href="/">Co-sal Board</a>
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon"></span>
-     </button>
-
-        <% if user_signed_in? %>
-          <div class="collapse navbar-collapse" id="navbarColor03">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="/posts">投稿一覧<span class="sr-only"></span></a>
-=======
    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#3498db;">
      <a class="navbar-brand h5" href="/about">Co-sal Board</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,27 +18,13 @@
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
                 <%= link_to "マイページ", current_user, class: "nav-link" %>
->>>>>>> main
               </li>
               <li class="nav-item">
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link", data: { confirm: 'ログアウトしますか?', cancel: 'やめる', commit: 'ログアウトする'}, title: 'ログアウト確認' %>
               </li>
             </ul>
-<<<<<<< HEAD
-            <form class="form-inline my-2 my-lg-0"> 
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <%= link_to "プロフィール", current_user, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
-                </li>
-              </ul>
-            </form>
-          </div>
-=======
+
           </form>
->>>>>>> main
        <% else %>
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
@@ -61,12 +33,7 @@
                 <%= link_to "Co-sal Boardとは?", about_path, class: "nav-link" %>
               </li>
               <li class="nav-item">
-<<<<<<< HEAD
-                <%= link_to "ゲストログイン", guest_sign_in_path, method: :post, class: "nav-link" %>
-                <%# <a class="nav-link" data-method="post" href="/users/guest_sign_in">ゲストログイン</a> %>
-=======
                 <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "nav-link" %>
->>>>>>> main
               </li>
               <li class="nav-item">
                 <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>

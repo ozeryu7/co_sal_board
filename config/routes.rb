@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  root to: "posts#index"
-=======
-  root to: 'posts#index'
->>>>>>> main
+  root to: 'static_pages#about'
   get :about,         to: 'static_pages#about'
   get :use_of_terms,  to: 'static_pages#terms'
 
@@ -18,11 +14,11 @@ Rails.application.routes.draw do
   end
 
   devise_scope :user do
-    post '/guest_sign_in', to: 'users/sessions#new_guest'
+    post "users/guest_sign_in", to: "users/sessions#new_guest"
   end
 
   resources :users, only: [:show, :create, :edit, :update, :destroy] do
-    member do
+    member do 
       get :following, :followers
     end
   end
