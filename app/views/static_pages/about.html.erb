@@ -1,16 +1,16 @@
 <section id="top">
   <div class="top-wrapper mb-4">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <!-- スライドさせる画像の設定 -->
       <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="3000">
-          <img src="<%= asset_path "top/top_img.jpg" %>" class="d-block w-100" alt="第1スライド">
+        <div class="carousel-item active">
+          <%= image_tag 'top/top_img.jpg', class: 'd-block w-100' %>
         </div><!-- /.carousel-item -->
-        <div class="carousel-item" data-bs-interval="3000">
-          <img src="<%= asset_path "top/top1_img.jpeg" %>" class="d-block w-100" alt="第2スライド">
+        <div class="carousel-item">
+          <%= image_tag 'top/top1_img.jpg', class: 'd-block w-100' %>
         </div><!-- /.carousel-item -->
-        <div class="carousel-item" data-bs-interval="3000">
-          <img src="<%= asset_path "top/top2_img.jpeg" %>" class="d-block w-100" alt="第3スライド">
+        <div class="carousel-item">
+          <%= image_tag 'top/top2_img.jpg', class: 'd-block w-100' %>
         </div><!-- /.carousel-item -->
       </div><!-- /.carousel-inner -->
     </div><!-- /.carousel -->
